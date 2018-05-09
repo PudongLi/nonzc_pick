@@ -16,6 +16,7 @@ import os
 import sys
 import subprocess
 from zookeeper import Zookeeper
+
 zk_nodelist = "10.12.1.174:2181,10.12.1.171:2181,10.12.1.234:2181"
 zk_process_id_path = "/nonzc/mms/pick"
 zk_config_node = "/nonzc/mms/pick/mms_pick.ini"
@@ -35,4 +36,4 @@ flag = zoo.get_config(zk_config_node, local_config_name)
 if flag is False:
     sys.exit()
 
-out = subprocess.Popen(["python", "./complex_pick.py ", "-c", local_config_name], stdout=subprocess.PIPE)
+out = subprocess.Popen(["python", "./complex_pick.py ", "-c", local_config_name])

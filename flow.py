@@ -169,7 +169,7 @@ class Flow:
         redo_info.append("end")
         zoo.set_node_value(redo_node, ";".join(redo_info).encode('utf-8'))
         self.move_file(source_file_list)
-        zoo.delete(redo_node)
+        zoo.delete_node(redo_node)
         logging.info("end the work of this batch")
 
     def move_file(self,  source_files):

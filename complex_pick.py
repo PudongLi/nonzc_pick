@@ -91,6 +91,8 @@ while 1:
     if file_num == 0:
         logging.info("no file in input dir,wait")
         time.sleep(5)
+        if ReceiveSignal.EXIT_FLAG:
+            sys.exit()
         continue
     flow.work(zoo, redo_node)
     if ReceiveSignal.EXIT_FLAG:

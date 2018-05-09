@@ -32,7 +32,7 @@ class ZkRedo:
         """
         if remove:
             # 将已经分拣出来的文件删掉
-            for output_dir in self.output_dirs:
+            for key, output_dir in self.output_dirs.items():
                 output_temp = output_dir + "/" + self.process_id
                 files = os.listdir(output_temp)
                 if not files:
@@ -48,7 +48,7 @@ class ZkRedo:
                         logging.error("redo work:delete file failed, err:%s" % e)
                         sys.exit()
             return
-        for output_dir in self.output_dirs:
+        for output_dir in self.output_dirs.items():
             output_temp = output_dir + "/" + self.process_id
             ofn_list = os.listdir(output_temp)
             if not ofn_list:
